@@ -1,0 +1,15 @@
+---
+- name: Execute Terraform
+  hosts: localhost
+  gather_facts: true
+  vars:
+    project_dir: "./terraform/localstack"
+
+  tasks:
+
+    - name: Basic deploy of a service
+      community.general.terraform:
+        project_path: '{{ project_dir }}'
+        state: present
+        force_init: true
+...
